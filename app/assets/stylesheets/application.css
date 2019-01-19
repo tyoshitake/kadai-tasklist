@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+ 
+.form-group {
+  
+}
+
+@media (min-width: 500xp) {
+  .form-group {
+    
+  }
+}
+
+@media (min-width: 1000xp) {
+  .form-group {
+    
+  }
+}

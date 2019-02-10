@@ -1,3 +1,13 @@
-<h1>id : <%= @task.id %> のタスク編集ページ</h1>
-
-<%= render 'form', task: @task %>
+<div class="row">
+  
+  <%= render 'layouts/error_messages', model: @task %>
+  
+  <h1><%= current_user.name %>さんのTasklist</h1>
+  
+  <aside class="col-md-4">
+    
+    <h3>タスクの編集</h3>
+    <%= render 'tasks/form', tasks: @task %>
+    
+  </aside>
+</div>

@@ -1,5 +1,31 @@
-<div class="cneter jumbotron">
-  <div class="text-center">
-    <h1>Welcome to the Tasklist</h1>
+<!--ログイン時-->
+<% if logged_in? %>
+  
+  <div class="row">
+    
+    <h1><%= current_user.name %>さんのTasklist</h1>
+    
+    <%= render 'layouts/error_messages', model: @task %>
+    
+    <aside class="col-md-4">
+      
+      <h3>新しいタスク</h3>
+      <%= render 'tasks/form', tasks: @task %>
+      
+    </aside>
+    <div class="col-xs-8">
+      
+      <h3>タスク一覧</h3>
+      <%= render 'tasks/tasks', tasks: @tasks %>
+      
+    </div>
   </div>
-</div>
+<!--ログアウト時-->
+<% else %>
+  <div class="cneter jumbotron">
+    <div class="text-center">
+      <h1>Welcome to the Tasklist</h1>
+      <%= link_to 'Sing up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+<% end %>

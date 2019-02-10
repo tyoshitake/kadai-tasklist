@@ -31,10 +31,10 @@ class TasksController < ApplicationController
     @task = current_user.tasks.build(task_params)
     
     if @task.save
-      flash[:success] = 'Task が正常に投稿されました'
+      flash[:success] = 'タスクが正常に作成されました'
       redirect_to root_url
     else
-      flash.now[:danger] = 'Task が投稿されませんでした'
+      flash.now[:danger] = 'タスクが作成されませんでした'
       
       @tasks = current_user.tasks.order('created_at').page(params[:page])
       render 'toppages/index'
@@ -43,7 +43,7 @@ class TasksController < ApplicationController
   
   def destroy
     @task.destroy
-    flash[:success] = 'Task は正常に削除されました'
+    flash[:success] = 'タスクは正常に削除されました'
     redirect_back(fallback_location: root_path)
   end
   
